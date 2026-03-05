@@ -1,0 +1,19 @@
+
+stages:
+  - test
+
+mobile_tests:
+  stage: test
+  image: node:18
+  script:
+    - cd mobile-tests
+    - npm install
+    - npx wdio run wdio.conf.js
+
+api_tests:
+  stage: test
+  image: node:18
+  script:
+    - cd api-tests
+    - npm install
+    - npm test

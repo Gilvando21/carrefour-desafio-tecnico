@@ -1,0 +1,13 @@
+
+{
+  "name": "api-automation-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha tests/*.js"
+  },
+  "dependencies": {
+    "supertest": "^6.3.3",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
