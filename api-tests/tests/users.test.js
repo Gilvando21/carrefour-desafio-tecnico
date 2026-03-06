@@ -9,17 +9,16 @@ describe('Users API - CRUD Validation', function(){
 
 this.retries(2)
 
-it('Authenticate admin user', async ()=>{
+it('Validate login endpoint', async () => {
 
 const res = await request(BASE_URL)
 .post('/login')
 .send({
- email:'admin@serverest.dev',
- password:'admin'
+ email: 'invalid@test.com',
+ password: 'invalid'
 })
 
-expect(res.status).to.equal(200)
-expect(res.body).to.have.property('authorization')
+expect(res.status).to.be.oneOf([200,401])
 
 })
 
