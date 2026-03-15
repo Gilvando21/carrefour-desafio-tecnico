@@ -1,4 +1,3 @@
-
 const { expect } = require("chai")
 const Ajv = require("ajv")
 
@@ -27,12 +26,14 @@ describe("Users API",()=>{
 
  it("Create user",async()=>{
 
-  const user = buildUser()
+ const user = buildUser()
 
-  const res = await service.createUser(user,token)
+ const res = await service.createUser(user,token)
 
-  expect(res.status).to.equal(201)
- })
+ expect(res.status).to.equal(201)
+ expect(res.body).to.have.property("_id")
+
+})
 
  it("Invalid user creation",async()=>{
 
@@ -50,6 +51,41 @@ describe("Users API",()=>{
   }
 
   expect(true).to.equal(true)
+
+ })
+
+ it("Update user",async()=>{
+
+  const user = buildUser()
+
+  const create = await service.createUser(user,token)
+
+  const userId = create.body._id
+
+  const updatedUser = {
+   nome:"Updated User",
+   email:`updated${Date.now()}@qa.com`,
+   password:"123456",
+   administrador:"true"
+  }
+
+  const res = await service.updateUser(userId,updatedUser,token)
+
+  expect(res.status).to.equal(200)
+
+ })
+
+ it("Delete user",async()=>{
+
+  const user = buildUser()
+
+  const create = await service.createUser(user,token)
+
+  const userId = create.body._id
+
+  const res = await service.deleteUser(userId,token)
+
+  expect(res.status).to.equal(200)
 
  })
 
