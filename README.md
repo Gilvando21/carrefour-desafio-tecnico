@@ -1,66 +1,144 @@
 
-# QA Automation Framework - Carrefour Technical Challenge
+# QA Automation Framework – Carrefour Technical Challenge
 
-Framework desenvolvido para atender os requisitos do desafio técnico de QA Automation.
+![Node.js](https://img.shields.io/badge/node.js-18-green)  
+![WebdriverIO](https://img.shields.io/badge/webdriverio-v8-blue)  
+![Appium](https://img.shields.io/badge/appium-mobile-orange)  
+![Automation](https://img.shields.io/badge/test-automation-brightgreen)
 
-Este projeto cobre:
+Automation framework developed to validate **API and Mobile functionalities** following modern QA Automation practices.
 
-API Automation
-- CRUD completo de usuários
-- Autenticação JWT
-- Validação de headers
-- Validação de schema (AJV)
-- Cenários positivos e negativos
-- Geração dinâmica de dados
-- Estrutura de serviços
-
-Mobile Automation
-- WebdriverIO + Appium
-- Page Object Model
-- Data driven tests
-- Evidências (screenshots)
-- Relatórios Allure
-
-CI/CD
-- GitLab CI pipeline
-- Execução automática
-- Artefatos de execução
+The project was created to attend the requirements of the **Carrefour QA Automation Technical Challenge**, implementing automated tests for a REST API and a mobile application using JavaScript-based tools.
 
 ---
 
-# Estrutura
+# Tech Stack
 
-api-tests
- - auth
- - data
- - schemas
- - services
- - tests
- - utils
+## API Automation
+- Node.js
+- Supertest
+- Mocha
+- Chai
+- AJV (Schema Validation)
+- Faker (Dynamic Test Data)
 
-mobile-tests
- - pages
- - specs
- - data
- - config
+## Mobile Automation
+- WebdriverIO
+- Appium
+- Mocha
+- Chai
+- Page Object Model (POM)
+
+## CI/CD
+- GitLab CI Pipeline
 
 ---
 
-# Executar
+# Test Coverage
 
-Instalar dependências
+## API Tests
+
+The API automation validates a user management REST API with the following coverage:
+
+- User CRUD validation
+- JWT Authentication
+- Header validation
+- Schema validation using AJV
+- Positive scenarios
+- Negative scenarios
+- Dynamic test data generation using Faker
+- Service layer abstraction for API calls
+
+---
+
+## Mobile Tests
+
+Mobile automation implemented using **WebdriverIO + Appium** following the **Page Object Model pattern**.
+
+Coverage includes:
+
+- Login interactions
+- UI element interaction
+- Navigation validation
+- Data-driven tests
+- Screenshot evidence on failure
+- Allure report integration
+
+---
+
+# Project Structure
+
+carrefour-desafio-tecnico
+│
+├── api-tests
+│   ├── auth        → Authentication and token management
+│   ├── data        → Test data builders
+│   ├── schemas     → API contract validation
+│   ├── services    → API service layer
+│   └── tests       → Automated API test cases
+│
+├── mobile-tests
+│   ├── pages       → Page Object Model implementation
+│   ├── specs       → Mobile test scenarios
+│   ├── data        → Data-driven test files
+│   └── config      → WebdriverIO configuration
+│
+├── package.json
+├── .gitlab-ci.yml
+└── README.md
+
+---
+
+# Setup
+
+Clone the repository:
+
+git clone https://github.com/Gilvando21/carrefour-desafio-tecnico.git
+
+Navigate to the project folder:
+
+cd carrefour-desafio-tecnico
+
+Install dependencies:
 
 npm run install:all
 
-Executar API
+---
+
+# Running the Tests
+
+Run API tests:
 
 npm run test:api
 
-Executar mobile
+Run Mobile tests:
 
 npm run test:mobile
 
 ---
 
-Autor
-Gilvando De Sena Matos
+# Reports
+
+Mobile tests generate **Allure reports** with screenshots and execution details.
+
+Artifacts are configured to be stored during CI execution.
+
+---
+
+# CI/CD
+
+The project includes a **GitLab CI pipeline** that automates test execution and stores test artifacts.
+
+Pipeline stages:
+
+- Dependency installation
+- API test execution
+- Mobile test execution
+- Artifact storage
+
+---
+
+# Author
+
+Gilvando De Sena Matos  
+QA Automation Engineer
